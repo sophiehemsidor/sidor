@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lurviga Tassar | Hundfrisör & Pälsvård i Gävle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5A5F;
+            --primary-light: #FFE8E8;
+            --secondary: #00B4D8;
+            --secondary-light: #E0F7FC;
+            --yellow: #FFB703;
+            --yellow-light: #FFF4D4;
+            --mint: #06D6A0;
+            --mint-light: #E6FAF4;
+            --purple: #8338EC;
+            --dark: #2B2D42;
+            --light-bg: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --radius-sm: 14px;
+            --radius-md: 22px;
+            --radius-lg: 32px;
+            --shadow-fun: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 18px 30px -5px rgba(255, 90, 95, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Fredoka', cursive;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Dekorationer */
+        .bubble-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* Header & Meny */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 253, 249, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-bottom: 2px solid #FFF0DE;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 4px 10px rgba(255, 90, 95, 0.4);
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+            display: block;
+            font-size: 0.85rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 90, 95, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: #ff4247;
+            box-shadow: 0 12px 25px rgba(255, 90, 95, 0.45);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: #0096b4;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 5rem 1.5rem 6rem;
+            overflow: hidden;
+            background: linear-gradient(180deg, #FFFDF9 0%, #FFF3EC 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--yellow-light);
+            color: #b77900;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            border: 2px dashed #fbd38d;
+        }
+
+        .hero-title {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-title .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: #555870;
+            margin-bottom: 2.2rem;
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            border-top: 2px dashed #F1DFD5;
+            padding-top: 1.8rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .stat-item p {
+            font-weight: 600;
+            color: #6c7086;
+            font-size: 0.95rem;
+        }
+
+        /* Hero Art Graphic */
+        .hero-illustration {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .art-circle {
+            width: 440px;
+            height: 440px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFE194 0%, #FFB703 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(255, 183, 3, 0.3);
+            border: 10px solid white;
+        }
+
+        .art-svg {
+            width: 320px;
+            height: 320px;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.12));
+        }
+
+        .floating-pill {
+            position: absolute;
+            background: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        .pill-1 { top: 20px; left: -20px; color: var(--primary); border: 2px solid var(--primary-light); }
+        .pill-2 { bottom: 30px; right: -20px; color: var(--mint); border: 2px solid var(--mint-light); animation-delay: -2s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        /* Sektioner generellt */
+        section {
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .badge {
+            background-color: var(--secondary-light);
+            color: var(--secondary);
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .badge-coral {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .badge-mint {
+            background-color: var(--mint-light);
+            color: var(--mint);
+        }
+
+        .section-title {
+            font-size: 2.7rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #636780;
+        }
+
+        /* Varför oss / Feature cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2.2rem 1.8rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-fun);
+            border: 2px solid #F3F4F6;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-light);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .bg-pink { background: #FFE5E5; color: #FF4757; }
+        .bg-blue { background: #E2F5FC; color: #00B4D8; }
+        .bg-yellow { background: #FFF4D9; color: #FFAA00; }
+        .bg-green { background: #E4F9F1; color: #06D6A0; }
+
+        .feature-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-box p {
+            color: #666a82;
+            font-size: 0.98rem;
+        }
+
+        /* Tjänster & Priser */
+        .services-section {
+            background-color: #FFF9F3;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 2px solid #E5E7EB;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.04);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.2rem;
+            box-shadow: var(--shadow-fun);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--yellow);
+            box-shadow: 0 16px 35px rgba(255, 183, 3, 0.2);
+        }
+
+        .service-card.popular {
+            border-color: var(--primary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            right: 24px;
+            background: var(--primary);
+            color: white;
+            font-family: 'Fredoka', cursive;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(255, 90, 95, 0.4);
+        }
+
+        .service-top {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.8rem;
+            background: var(--yellow-light);
+        }
+
+        .service-title {
+            font-size: 1.55rem;
+        }
+
+        .service-meta {
+            font-size: 0.9rem;
+            color: #8C8FA7;
+            font-weight: 600;
+        }
+
+        .service-desc {
+            color: #636780;
+            font-size: 0.98rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            font-size: 0.95rem;
+            color: #4A4D68;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .service-features li svg {
+            flex-shrink: 0;
+            color: var(--mint);
+        }
+
+        .service-price-box {
+            background: #F9FAFB;
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            margin-top: auto;
+            border: 1px solid #ECEEF2;
+        }
+
+        .price-rows {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
+            color: #555;
+        }
+
+        .price-rows.highlight {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 0.4rem;
+            padding-top: 0.4rem;
+            border-top: 1px dashed #DDD;
+        }
+
+        .price-rows.highlight span:last-child {
+            color: var(--primary);
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* Små extratjänster / Add-ons */
+        .addons-box {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-top: 3.5rem;
+            box-shadow: var(--shadow-fun);
+            border: 2px dashed #FFD6A5;
+        }
+
+        .addons-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .addon-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFFDF9;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #F0ECE4;
+        }
+
+        .addon-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .addon-price {
+            font-family: 'Fredoka', cursive;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Öppettider & Info sektion */
+        .hours-contact-section {
+            background: white;
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+
+        .hours-card {
+            background: linear-gradient(145deg, #00B4D8 0%, #0077B6 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 180, 216, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #06D6A0;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #06D6A0;
+        }
+
+        .hours-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .hours-list li.today {
+            background: rgba(255,255,255,0.15);
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 8px;
+        }
+
+        .hours-extra-note {
+            background: rgba(0,0,0,0.12);
+            padding: 1rem 1.4rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Kontaktformulär & info */
+        .contact-card {
+            background: #FFFDF9;
+            border: 2px solid #F1E9E0;
+            border-radius: var(--radius-lg);
+            padding: 2.8rem 2.5rem;
+            box-shadow: var(--shadow-fun);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .c-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .c-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--yellow-light);
+            color: #d97706;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .c-item h4 {
+            font-size: 0.95rem;
+            color: #71758c;
+            margin-bottom: 2px;
+        }
+
+        .c-item p, .c-item a {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .c-item a:hover {
+            color: var(--primary);
+        }
+
+        /* Snabb-bokningsförfrågan */
+        .booking-box {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.6rem;
+            border: 1px solid #ECEEF2;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #4A4D68;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        /* Recensioner */
+        .reviews-section {
+            background-color: #F8FBFD;
+        }
+
+        .reviews-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-fun);
+            border-top: 5px solid var(--secondary);
+            position: relative;
+        }
+
+        .review-card:nth-child(2) { border-top-color: var(--primary); }
+        .review-card:nth-child(3) { border-top-color: var(--yellow); }
+
+        .stars {
+            color: #FFB703;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: #555A75;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .reviewer-meta h4 {
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .reviewer-meta p {
+            font-size: 0.85rem;
+            color: #8C8FA7;
+        }
+
+        /* Gävle Karta & Hitta hit */
+        .location-section {
+            background: #FFF;
+            padding-bottom: 4rem;
+        }
+
+        .gavle-banner {
+            background: linear-gradient(135deg, #FFF3EC 0%, #FFF7D6 100%);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #FFE4CE;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .gavle-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .gavle-text p {
+            color: #636780;
+            font-size: 1.05rem;
+        }
+
+        .gavle-badge {
+            background: white;
+            padding: 0.8rem 1.4rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        /* FAQ sektion */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #EBECEF;
+            border-radius: 16px;
+            padding: 1.4rem;
+            transition: all 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-q {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-a {
+            color: #636780;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-about p {
+            color: #A0A3BD;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #A0A3BD;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #72758E;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Toast notification vid bokning */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #06D6A0;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            font-weight: 700;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsivitet */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .art-circle {
+                width: 320px;
+                height: 320px;
+            }
+
+            .art-svg {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                border-bottom: 2px solid var(--primary-light);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-6 2c1.38 0 2.5-1.12 2.5-2.5S7.38 8 6 8s-2.5 1.12-2.5 2.5S4.62 13 6 13zm12 0c1.38 0 2.5-1.12 2.5-2.5S19.38 8 18 8s-2.5 1.12-2.5 2.5 1.12 2.5 2.5 2.5zm-6 3.5c-2.33 0-7 1.17-7 3.5V20h14v-1.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        <circle cx="5" cy="5" r="2" />
+                        <circle cx="19" cy="5" r="2" />
+                        <circle cx="9.5" cy="3" r="1.8" />
+                        <circle cx="14.5" cy="3" r="1.8" />
+                        <path d="M12,7 C8.7,7 6,9.7 6,13 C6,15.5 7.5,17.6 9.8,18.5 C10.4,18.8 11.2,19 12,19 C12.8,19 13.6,18.8 14.2,18.5 C16.5,17.6 18,15.5 18,13 C18,9.7 15.3,7 12,7 Z" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    Lurviga Tassar
+                    <span>Hundfrisör Gävle</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-btn" id="menuToggle" aria-label="Öppna meny">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#tjanster">Tjänster & Priser</a></li>
+                <li><a href="#om-oss">Om Salongen</a></li>
+                <li><a href="#oppettider">Öppettider</a></li>
+                <li><a href="#recensioner">Glada Hundar</a></li>
+                <li><a href="#kontakt">Hitta Hit</a></li>
+                <li><a href="#boka" class="btn btn-primary">Boka Klipptid ✂️</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨</span> Gävles mysigaste & gladaste hundsalong
+                </div>
+                <h1 class="hero-title">
+                    Gör din hund <br><span class="highlight">ren, fin & lycklig!</span>
+                </h1>
+                <p class="hero-desc">
+                    Välkommen till Lurviga Tassar på Söder i Gävle. Vi erbjuder varsam och professionell klippning, trimning, bad och klovård i en trygg, lekfull och helt stressfri miljö.
+                </p>
+                <div class="hero-cta">
+                    <a href="#tjanster" class="btn btn-primary">Se våra priser ✨</a>
+                    <a href="#oppettider" class="btn btn-secondary">Öppettider & Kontakt 📍</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>12+</h4>
+                        <p>Års erfarenhet</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Kärlek & omsorg</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>2 400+</h4>
+                        <p>Klippta svansar</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-illustration">
+                <div class="art-circle">
+                    <!-- Hund & Pälsvård SVG-grafik -->
+                    <svg class="art-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bubblor i bakgrunden -->
+                        <circle cx="35" cy="50" r="14" fill="#00B4D8" opacity="0.3" />
+                        <circle cx="165" cy="40" r="18" fill="#FF5A5F" opacity="0.25" />
+                        <circle cx="170" cy="150" r="12" fill="#06D6A0" opacity="0.3" />
+                        
+                        <!-- Badbalja / Vatten stänk -->
+                        <path d="M30 140 C30 170 170 170 170 140 Z" fill="#FFFFFF" />
+                        <path d="M25 135 C25 130 175 130 175 135 C175 140 25 140 25 135 Z" fill="#00B4D8" />
+                        <circle cx="70" cy="130" r="8" fill="#E0F7FC" />
+                        <circle cx="95" cy="125" r="11" fill="#E0F7FC" />
+                        <circle cx="125" cy="128" r="9" fill="#E0F7FC" />
+                        
+                        <!-- Glad Hund -->
+                        <!-- Öron -->
+                        <path d="M55 70 C40 60 30 90 45 110 C55 120 65 105 60 85 Z" fill="#8D5B4C" />
+                        <path d="M145 70 C160 60 170 90 155 110 C145 120 135 105 140 85 Z" fill="#8D5B4C" />
+                        <!-- Huvud -->
+                        <ellipse cx="100" cy="85" rx="46" ry="42" fill="#E8B298" />
+                        <!-- Vit bläs -->
+                        <path d="M92 60 C92 50 108 50 108 60 C108 80 114 95 100 95 C86 95 92 80 92 60 Z" fill="#FFFDF9" />
+                        <!-- Ögon -->
+                        <circle cx="82" cy="78" r="5.5" fill="#2B2D42" />
+                        <circle cx="118" cy="78" r="5.5" fill="#2B2D42" />
+                        <circle cx="84" cy="76" r="2" fill="#FFFFFF" />
+                        <circle cx="120" cy="76" r="2" fill="#FFFFFF" />
+                        <!-- Nos & Mun -->
+                        <ellipse cx="100" cy="94" rx="8" ry="6" fill="#2B2D42" />
+                        <path d="M100 100 L100 106 M100 106 C95 112 90 106 88 103 M100 106 C105 112 110 106 112 103" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round" />
+                        <!-- Tunga -->
+                        <path d="M96 108 C96 117 104 117 104 108 Z" fill="#FF5A5F" />
+                        <!-- Skumkrona på huvudet -->
+                        <path d="M85 45 C80 40 90 32 95 38 C100 30 112 33 110 40 C118 40 118 48 112 50 C95 52 82 50 85 45 Z" fill="#FFFFFF" opacity="0.95" />
+                        <!-- Sax / frisör detalj -->
+                        <g transform="translate(130, 20) rotate(15)">
+                            <circle cx="10" cy="10" r="6" stroke="#2B2D42" stroke-width="2" fill="none" />
+                            <circle cx="10" cy="24" r="6" stroke="#2B2D42" stroke-width="2" fill="none" />
+                            <path d="M15 13 L35 22 M15 21 L35 12" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                    <div class="floating-pill pill-1">
+                        <span>✂️</span> Skonsam klippning
+                    </div>
+                    <div class="floating-pill pill-2">
+                        <span>🧼</span> Lyxigt ekologiskt schampo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fördelar / Varför Lurviga Tassar -->
+    <section id="om-oss">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge badge-coral">Varför välja oss?</span>
+                <h2 class="section-title">Ett andra hem för din bästa vän</h2>
+                <p class="section-subtitle">
+                    Hos Lurviga Tassar i Gävle jobbar vi alltid på hundens villkor. Inga stressiga burar, inga hårdhänta metoder – bara massvis av tålamod, godis och kärlek.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper bg-pink">
+                        ❤️
+                    </div>
+                    <h3>Individuellt bemötande</h3>
+                    <p>Vi tar bara emot en hund i taget (om de inte är från samma familj). Detta skapar lugn och ro för även den mest ängsliga vovven.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper bg-blue">
+                        🌿
+                    </div>
+                    <h3>100% Ekologiskt & Skonsamt</h3>
+                    <p>Vi använder enbart parfymerade och allergivänliga pälsprodukter av högsta kvalitet som vårdar päls och känslig hud skonsamt.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper bg-yellow">
+                        🏆
+                    </div>
+                    <h3>Certifierad Hundfrisör</h3>
+                    <p>Diplomerad och utbildad inom modern pälsvård, rashygien, anatomi samt hundens signaler och belöningsbaserad hantering.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper bg-green">
+                        📍
+                    </div>
+                    <h3>Centralt på Söder i Gävle</h3>
+                    <p>Lättillgänglig salong med gratis korttidsparkering precis utanför dörren och fina promenadstråk i närheten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tjänster & Priser -->
+    <section id="tjanster" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge badge-mint">Prislista & Behandlingar</span>
+                <h2 class="section-title">Populära tjänster & fasta priser</h2>
+                <p class="section-subtitle">
+                    Priset kan variera något baserat på pälsens tovighet och hundens storlek. Alla stora behandlingar inkluderar alltid bad, fön och kloklipp!
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Tjänst 1 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-top">
+                            <div class="service-icon">✂️</div>
+                            <div>
+                                <h3 class="service-title">Vardagsklippning</h3>
+                                <div class="service-meta">Tidsåtgång: ca 90-120 min</div>
+                            </div>
+                        </div>
+                        <p class="service-desc">
+                            En smidig och snygg maskin- eller saxklippning enligt dina önskemål. Perfekt för en lättskött vardagspäls.
+                        </p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Dubbelbad med vårdande schampo
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Föning och grundlig urborstning
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Kloklippning & öronrengöring
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Tassputs och intimklipp
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-price-box">
+                        <div class="price-rows"><span>Liten hund (t.ex. Havaneser):</span> <strong>750 kr</strong></div>
+                        <div class="price-rows"><span>Mellan (t.ex. Cockerpoo):</span> <strong>890 kr</strong></div>
+                        <div class="price-rows highlight"><span>Stor hund:</span> <span>fr. 1 090 kr</span></div>
+                    </div>
+                </div>
+
+                <!-- Tjänst 2: Populär -->
+                <div class="service-card popular">
+                    <span class="popular-badge">Mest Populär! 🌟</span>
+                    <div>
+                        <div class="service-top">
+                            <div class="service-icon" style="background: var(--primary-light);">🛁</div>
+                            <div>
+                                <h3 class="service-title">Spa & Lyxbad</h3>
+                                <div class="service-meta">Tidsåtgång: ca 60-90 min</div>
+                            </div>
+                        </div>
+                        <p class="service-desc">
+                            För hundar som fäller mycket eller bara behöver en ordentlig uppfräschning! Tar bort död underull och ger lyster.
+                        </p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Djuprengörande massagebad
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Urblåsning av fällpäls med fön
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Skonsam kloklippning
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Återfuktande tassalva ingår
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-price-box">
+                        <div class="price-rows"><span>Korthårig liten hund:</span> <strong>550 kr</strong></div>
+                        <div class="price-rows"><span>Mellanpäls / Fällhund:</span> <strong>690 kr</strong></div>
+                        <div class="price-rows highlight"><span>Stor hund (t.ex. Golden):</span> <span>890 kr</span></div>
+                    </div>
+                </div>
+
+                <!-- Tjänst 3 -->
+                <div class="service-card">
+                    <div>
+                        <div class="service-top">
+                            <div class="service-icon" style="background: var(--mint-light);">🐾</div>
+                            <div>
+                                <h3 class="service-title">Valpintroduktion</h3>
+                                <div class="service-meta">Tidsåtgång: ca 45 min</div>
+                            </div>
+                        </div>
+                        <p class="service-desc">
+                            För valpar upp till 6 månader. Vi bygger trygghet, provar badkaret, ljudet från fönen och klipper lite klor i lugn takt.
+                        </p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Lugn miljöträning på bordet
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Nos- och tassklipp samt klor
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Massor av gott belöningsgodis
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Goda råd för pälsvård hemma
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-price-box">
+                        <div class="price-rows"><span>Alla valpraser:</span> <strong>450 kr</strong></div>
+                        <div class="price-rows highlight"><span>Valp-paket (3 ggr):</span> <span>1 100 kr</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Små tilläggstjänster -->
+            <div class="addons-box">
+                <h3 class="addons-title">Snabba tillägg & Drop-in tjänster 🐾</h3>
+                <div class="addons-grid">
+                    <div class="addon-item">
+                        <span class="addon-name">💅 Kloklippning</span>
+                        <span class="addon-price">150 kr</span>
+                    </div>
+                    <div class="addon-item">
+                        <span class="addon-name">✨ Tass- & Trampdynslyx</span>
+                        <span class="addon-price">220 kr</span>
+                    </div>
+                    <div class="addon-item">
+                        <span class="addon-name">👂 Öronplock & Rengöring</span>
+                        <span class="addon-price">180 kr</span>
+                    </div>
+                    <div class="addon-item">
+                        <span class="addon-name">🪥 Tandborstning (Emmi-Pet)</span>
+                        <span class="addon-price">290 kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Öppettider och Kontakt -->
+    <section id="oppettider" class="hours-contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Välkommen in!</span>
+                <h2 class="section-title">Öppettider & Kontaktuppgifter</h2>
+                <p class="section-subtitle">
+                    Här hittar du våra ordinarie tider samt kontaktvägar för att nå oss på Lurviga Tassar i Gävle.
+                </p>
+            </div>
+
+            <div class="split-grid">
+                <!-- Vänster: Öppettider -->
+                <div class="hours-card">
+                    <div>
+                        <div class="status-pill">
+                            <span class="status-dot"></span> Öppet idag för tidsbokning
+                        </div>
+                        <h3 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Salongens Öppettider</h3>
+                        <p style="opacity: 0.9;">Vi tar emot bokade besök samt drop-in för kloklipp mån-tors.</p>
+
+                        <ul class="hours-list">
+                            <li>
+                                <span>Måndag</span>
+                                <span>08:30 – 17:00</span>
+                            </li>
+                            <li class="today">
+                                <span>Tisdag</span>
+                                <span>08:30 – 17:00</span>
+                            </li>
+                            <li>
+                                <span>Onsdag</span>
+                                <span>08:30 – 18:00</span>
+                            </li>
+                            <li>
+                                <span>Torsdag</span>
+                                <span>08:30 – 17:00</span>
+                            </li>
+                            <li>
+                                <span>Fredag</span>
+                                <span>08:30 – 15:30</span>
+                            </li>
+                            <li>
+                                <span>Lördag</span>
+                                <span>10:00 – 14:00 (Varannan helg)</span>
+                            </li>
+                            <li>
+                                <span>Söndag & Helgdagar</span>
+                                <span>Stängt för bus i skogen 🌲</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hours-extra-note">
+                        💡 <strong>Kloklipp drop-in:</strong> Helgfria vardagar mellan 11:30 - 12:30 krävs ingen tidsbokning!
+                    </div>
+                </div>
+
+                <!-- Höger: Kontaktuppgifter & Snabbförfrågan -->
+                <div class="contact-card" id="boka">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--dark);">Hör av dig till oss</h3>
+
+                    <div class="contact-methods">
+                        <div class="c-item">
+                            <div class="c-icon">📞</div>
+                            <div>
+                                <h4>Ring eller SMS:a</h4>
+                                <a href="tel:026123456">026 - 12 34 56</a>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon">✉️</div>
+                            <div>
+                                <h4>E-postadress</h4>
+                                <a href="mailto:hej@lurvigatassar-gavle.se">hej@lurvigatassar-gavle.se</a>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon">📍</div>
+                            <div>
+                                <h4>Adress i Gävle</h4>
+                                <p>Södra Kungsgatan 34, 802 52 Gävle</p>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon">📸</div>
+                            <div>
+                                <h4>Instagram</h4>
+                                <p>@LurvigaTassarGavle</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enkelt interaktivt formulär -->
+                    <div class="booking-box">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--dark);">Skicka bokningsförfrågan 🐶</h4>
+                        <form id="bookingForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Ditt namn</label>
+                                    <input type="text" class="form-control" placeholder="T.ex. Anna Svensson" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefonnummer</label>
+                                    <input type="tel" class="form-control" placeholder="070-123 45 67" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Hundens namn & ras</label>
+                                    <input type="text" class="form-control" placeholder="T.ex. Bosse, Dvärgpudel" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Önskad tjänst</label>
+                                    <select class="form-control">
+                                        <option>Vardagsklippning & Bad</option>
+                                        <option>Spa & Lyxbad</option>
+                                        <option>Valpintroduktion</option>
+                                        <option>Endast Kloklipp</option>
+                                        <option>Annat / Fråga</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Önskat datum & övrig information</label>
+                                <textarea class="form-control" rows="2" placeholder="Berätta gärna om hunden har tovor eller är rädd för något..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Skicka Förfrågan 🐾</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Karta & Hitta hit -->
+    <section class="location-section" id="kontakt">
+        <div class="container">
+            <div class="gavle-banner">
+                <div class="gavle-text">
+                    <h3>Hitta till Lurviga Tassar i Gävle 🐾</h3>
+                    <p>Vi finns mitt på Söder, ett stenkast från Södermalmstorg och fina promenadstråk längs Gavleån.</p>
+                </div>
+                <div class="gavle-badge">
+                    <span>🚗</span> Gratis kundparkering i 2 timmar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kundrecensioner -->
+    <section id="recensioner" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge badge-yellow" style="background:#FFF3CD; color:#b77900;">Nöjda hussar & mattar</span>
+                <h2 class="section-title">Vad säger Gävles vovvar?</h2>
+                <p class="section-subtitle">
+                    Vi är stolta över att ha över 4.9 av 5 i betyg från våra fantastiska två- och fyrbenta kunder!
+                </p>
+            </div>
+
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">
+                        "Min pudel Bella brukar vara supernervös hos frisören, men hos Lurviga Tassar viftade hon på svansen när jag hämtade henne! Klippningen blev helt perfekt och doftar ljuvligt."
+                    </p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">MS</div>
+                        <div class="reviewer-meta">
+                            <h4>Maria & Bella</h4>
+                            <p>Sätra, Gävle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">
+                        "Bästa hundsalongen i Gävle! Otroligt tålmodig personal och alltid så glatt bemötande. Charlie fäller inte alls lika mycket hemma efter deras spabad med fällbehandling."
+                    </p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar" style="background:var(--primary-light); color:var(--primary);">JE</div>
+                        <div class="reviewer-meta">
+                            <h4>Johan & Charlie</h4>
+                            <p>Hemlingby, Gävle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">
+                        "Valpintroduktionen för vår lilla golden-valp var guld värd. Hon fick massor av gos och trygghet i sin egen takt. Vi kommer garanterat tillbaka för ordinarie klippning!"
+                    </p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar" style="background:var(--yellow-light); color:#b77900;">KL</div>
+                        <div class="reviewer-meta">
+                            <h4>Karin & Sigge</h4>
+                            <p>Brynäs, Gävle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vanliga frågor (FAQ) -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="badge badge-coral">Frågor & Svar</span>
+                <h2 class="section-title">Bra att veta inför besöket</h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q"><span>❓</span> Får jag som ägare stanna under tiden?</div>
+                    <div class="faq-a">Vi rekommenderar oftast att ägaren tar en kaffe under tiden, då de allra flesta hundar blir lugnare och mer fokuserade utan husse eller matte i rummet. Självklart kan vi göra undantag om din hund har särskilda behov!</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q"><span>❓</span> Hur förbereder jag min hund inför klippningen?</div>
+                    <div class="faq-a">Rasta din hund ordentligt precis innan besöket så att den har fått kissa och göra sina behov. Ge gärna inte ett jättestort mål mat precis innan.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q"><span>❓</span> Vad händer om min hund har tovor?</div>
+                    <div class="faq-a">Mindre tovor reder vi ut försiktigt. Vid kraftig tovighet klipper vi ner pälsen kort för hundens välmående, då tovor stramar och gör ont i huden. Vi rådgör alltid med dig först!</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q"><span>❓</span> Hur betalar jag hos er?</div>
+                    <div class="faq-a">Vi tar emot Swish samt alla vanliga betalkort (Visa, Mastercard etc.). Vi är en kontantfri salong för säkerhets skull.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-6 2c1.38 0 2.5-1.12 2.5-2.5S7.38 8 6 8s-2.5 1.12-2.5 2.5S4.62 13 6 13zm12 0c1.38 0 2.5-1.12 2.5-2.5S19.38 8 18 8s-2.5 1.12-2.5 2.5 1.12 2.5 2.5 2.5zm-6 3.5c-2.33 0-7 1.17-7 3.5V20h14v-1.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text" style="color:white;">
+                        Lurviga Tassar
+                        <span style="color: #FFB703;">Gävle</span>
+                    </div>
+                </div>
+                <p>
+                    Gävles gladaste pälsvårdare! Vi ger din fyrbenta familjemedlem den kärleksfulla och professionella omsorg den förtjänar.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Snabblänkar</h4>
+                <ul>
+                    <li><a href="#tjanster">Våra Tjänster</a></li>
+                    <li><a href="#tjanster">Prislista</a></li>
+                    <li><a href="#om-oss">Om Salongen</a></li>
+                    <li><a href="#oppettider">Öppettider</a></li>
+                    <li><a href="#kontakt">Hitta till oss</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Populärt</h4>
+                <ul>
+                    <li><a href="#tjanster">Kloklippning Gävle</a></li>
+                    <li><a href="#tjanster">Pudel & Doodle-klipp</a></li>
+                    <li><a href="#tjanster">Fällningsbehandling</a></li>
+                    <li><a href="#tjanster">Valpkurs / Miljöträning</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Kontakt & Besök</h4>
+                <p style="color: #A0A3BD; font-size: 0.95rem; margin-bottom: 0.8rem;">
+                    📍 Södra Kungsgatan 34<br>802 52 Gävle
+                </p>
+                <p style="color: #A0A3BD; font-size: 0.95rem; margin-bottom: 0.8rem;">
+                    📞 026 - 12 34 56
+                </p>
+                <p style="color: #A0A3BD; font-size: 0.95rem;">
+                    💌 hej@lurvigatassar-gavle.se
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                © <span id="currentYear"></span> Lurviga Tassar Gävle AB. Alla rättigheter förbehållna.
+            </div>
+            <div>
+                Designad med glädje & kärlek för hundar 🐕🐾
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification vid skickat formulär -->
+    <div id="toast" class="toast">
+        <span>🎉</span> Tack! Vi kontaktar dig strax för att bekräfta tiden.
+    </div>
+
+    <!-- Javascript för interaktivitet -->
+    <script>
+        // Dynamiskt årtal
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobilmeny
+        const menuBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Stäng menyn när en länk klickas på mobil
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.textContent = '☰';
+                }
+            });
+        });
+
+        // Formulärhantering
+        const bookingForm = document.getElementById('bookingForm');
+        const toast = document.getElementById('toast');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Visa bekräftelse
+            toast.style.display = 'flex';
+            bookingForm.reset();
+
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4500);
+        });
+
+        // Markera dagens öppettid automatiskt
+        const days = ['Söndag & Helgdagar', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
+        const todayIndex = new Date().getDay();
+        const currentDayName = days[todayIndex];
+
+        const listItems = document.querySelectorAll('.hours-list li');
+        listItems.forEach(item => {
+            item.classList.remove('today');
+            if (item.querySelector('span').textContent.includes(currentDayName)) {
+                item.classList.add('today');
+            }
+        });
+    </script>
+</body>
+</html>
